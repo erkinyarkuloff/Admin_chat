@@ -1,0 +1,15 @@
+# Python bazasidan foydalanamiz
+FROM python:3.10
+
+# Ishchi katalog yaratamiz
+WORKDIR /bot
+
+# Talab qilingan kutubxonalarni o‘rnatamiz
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Bot kodini nusxalaymiz
+COPY . .
+
+# Botni ishga tushiramiz
+CMD ["python", "main.py"]
